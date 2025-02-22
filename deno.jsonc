@@ -1,0 +1,25 @@
+{
+  "imports": {
+    "react": "npm:react@^19.0.0",
+    "react-dom": "npm:react-dom@^19.0.0"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  },
+  "tasks": {
+    "dev": "deno run --allow-net --allow-env --watch dev.tsx",
+     "build": "deno run -A build.tsx"
+  },
+  "fmt": {
+    "options": {
+      "useTabs": false,
+      "indentWidth": 2
+    }
+  },
+  "lint": {
+    "options": {}
+  },
+  "test": {},
+  "exclude": ["**/node_modules/**"]
+}
