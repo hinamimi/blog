@@ -7,8 +7,8 @@ import { join } from "https://deno.land/std@0.192.0/path/mod.ts";
 
 // ビルド対象のパス
 const routes = [
-  "/",
-  "/posts/2025-02-23",
+  "/blog",
+  "/blog/posts/2025-02-23",
 ];
 
 async function build() {
