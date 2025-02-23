@@ -49,7 +49,7 @@ async function build() {
       // 出力パスの設定
       const outputPath = route === "/"
         ? join(DIST_DIR, "index.html")
-        : join(DIST_DIR, `${route}.html`);
+        : join(DIST_DIR, route, "index.html");
 
       // 出力ディレクトリの作成
       await ensureDir(join(DIST_DIR, route));

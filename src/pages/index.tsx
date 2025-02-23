@@ -7,7 +7,7 @@ export default function IndexPage() {
       <p>This is the home page.</p>
       <ul>
         <li>
-          <a href="/posts/2025-02-23">2025-02-23</a>
+          <a href="/posts/2025-02-23/">2025-02-23</a>
         </li>
       </ul>
     </div>
