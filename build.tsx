@@ -60,6 +60,7 @@ async function build() {
     }
 
     console.log("✨ Build completed successfully!");
+    Deno.exit(0);
   } catch (error) {
     console.error("❌ Build failed:", error);
     Deno.exit(1);
