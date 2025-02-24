@@ -8,10 +8,13 @@ import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
 serve((req) => {
   const url = new URL(req.url);
 
-  if (url.pathname.startsWith("/static/")) {
-    return serveDir(req, {
-      fsRoot: ".",
-    });
+  if (url.pathname.startsWith("/blog/static/")) {
+    return serveDir(
+      new Request(req.url.replace("/blog/static", "/static"), req),
+      {
+        fsRoot: ".",
+      },
+    );
   }
 
   const html = renderToString(

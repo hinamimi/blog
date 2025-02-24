@@ -11,7 +11,7 @@
     "jsxImportSource": "react"
   },
   "tasks": {
-    "dev": "deno run --allow-net --allow-env --watch dev.tsx",
+    "dev": "deno run -A --watch dev.tsx",
      "build": "deno run -A build.tsx"
   },
   "fmt": {

@@ -29,7 +29,7 @@ cd blog
 deno run -A dev.ts
 ```
 
-The development server will start at `http://localhost:8000` with hot reload enabled. Any changes to the source files will automatically trigger a browser refresh.
+The development server will start at `http://localhost:8000/blog` with hot reload enabled. Any changes to the source files will automatically trigger a browser refresh.
 
 ### Project Structure
 

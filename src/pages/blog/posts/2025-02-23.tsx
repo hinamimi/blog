@@ -73,7 +73,7 @@ export default function post_20250223() {
       </ul>
       <p>これがなかなか良い感じで、手作業で考えるよりも楽だった。</p>
       <img
-        src="/static/2025-02-23/claude3-start.png"
+        src="/blog/static/2025-02-23/claude3-start.png"
         alt="Claude 3の提案"
         style={{ maxWidth: "100%" }}
       />
@@ -119,6 +119,7 @@ export default function post_20250223() {
       <hr />
       <footer>
         <p>Posted on February 23, 2025</p>
+        <p>Updated on February 25, 2025</p>
         <p>後でheader, footer,デザインを整える</p>
       </footer>
     </div>
