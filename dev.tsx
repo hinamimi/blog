@@ -3,9 +3,16 @@ import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 import { App } from "./src/app.tsx";
+import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
 
 serve((req) => {
   const url = new URL(req.url);
+
+  if (url.pathname.startsWith("/static/")) {
+    return serveDir(req, {
+      fsRoot: ".",
+    });
+  }
 
   const html = renderToString(
     <html lang="ja">

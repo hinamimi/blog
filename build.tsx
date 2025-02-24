@@ -4,6 +4,7 @@ import { StaticRouter } from "https://esm.sh/react-router-dom@7.0.0";
 import { App } from "./src/app.tsx";
 import { ensureDir } from "https://deno.land/std@0.192.0/fs/mod.ts";
 import { join } from "https://deno.land/std@0.192.0/path/mod.ts";
+import { copy } from "https://deno.land/std@0.224.0/fs/copy.ts";
 
 // ビルド対象のパス
 const routes = [
@@ -23,6 +24,7 @@ async function build() {
       // ディレクトリが存在しない場合は無視
     }
     await ensureDir(DIST_DIR);
+    await copy("./static", "./dist/blog/static", { overwrite: true });
 
     // 各ルートに対してHTMLを生成
     for (const route of routes) {
