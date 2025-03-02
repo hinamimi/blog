@@ -23,5 +23,6 @@ export const Head = (metaData: Metadata) => (
     {metaData.additionalMeta?.map((meta, index) => (
       <meta key={index} name={meta.name} content={meta.content} />
     ))}
+    <link rel="icon" href="/blog/static/favicon.ico"></link>
   </head>
 );
