@@ -1,5 +1,15 @@
 /** @jsxImportSource https://esm.sh/react@19.0.0 */
 import { Link } from "react-router-dom";
+import Metadata, { defaultMetadata } from "@/utils/metaData.ts";
+
+export function meta_20250223(): Metadata {
+  return {
+    ...defaultMetadata,
+    path: "/blog/posts/2025-02-23",
+    title: "Blog Post Title | My Blog",
+    description: "This is a specific blog post about something interesting",
+  };
+}
 
 export default function post_20250223() {
   return (

@@ -1,9 +1,11 @@
 /** @jsxImportSource https://esm.sh/react@19.0.0 */
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom";
-import { App } from "./src/app.tsx";
 import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
+import { metadataMap } from "@/routes.tsx";
+import { defaultMetadata } from "@/utils/metaData.ts";
+import { Head } from "@/components/Head.tsx";
+import { Body } from "@/components/Body.tsx";
 
 serve((req) => {
   const url = new URL(req.url);
@@ -19,18 +21,8 @@ serve((req) => {
 
   const html = renderToString(
     <html lang="ja">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>My Blog</title>
-      </head>
-      <body>
-        <div id="root">
-          <StaticRouter location={url.pathname}>
-            <App />
-          </StaticRouter>
-        </div>
-      </body>
+      {Head(metadataMap[url.pathname]?.() ?? defaultMetadata)}
+      {Body(url.pathname)}
     </html>,
   );
 
