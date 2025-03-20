@@ -69,6 +69,8 @@ async function generateStaticHTML() {
       <html lang="ja">
         {Head(metadataMap[route]?.() ?? defaultMetadata)}
         {Body(route)}
+        {/* クライアントサイドスクリプトの挿入 */}
+        <script type="module" src="/blog/static/js/client.js"></script>
       </html>,
     );
 
@@ -92,11 +94,11 @@ async function build() {
   try {
     console.log("🚀 Building static site...");
 
-    // クライアントサイドのバンドルを生成
-    await buildClient();
-
     // 静的HTMLを生成
     await generateStaticHTML();
+
+    // クライアントサイドのバンドルを生成
+    await buildClient();
 
     console.log("✨ Build completed successfully!");
 
