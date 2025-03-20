@@ -1,6 +1,7 @@
 {
   "imports": {
     "@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
+    "@esbuild-plugins/node-modules-polyfill": "npm:@esbuild-plugins/node-modules-polyfill@^0.2.2",
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/server": "https://esm.sh/react-dom@19.0.0/server",

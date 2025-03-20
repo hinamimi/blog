@@ -2,7 +2,7 @@ import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
-import { Html, Html2 } from "./src/html.tsx";
+import { Html } from "./src/html.tsx";
 
 let ctx: esbuild.BuildContext | null = null;
 
@@ -25,6 +25,11 @@ async function setupEsbuild() {
       jsxImportSource: "https://esm.sh/react@19.0.0",
       jsxFactory: "React.createElement",
       jsxFragment: "React.Fragment",
+      define: {
+        "process.env.NODE_ENV": '"production"',
+      },
+      external: ["node:process"],
+
       banner: {
         js: `
           // 開発環境用のホットリロードコード

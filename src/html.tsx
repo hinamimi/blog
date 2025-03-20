@@ -13,6 +13,7 @@ export function Html(key: string) {
   );
 }
 
+// TODO
 export function Html2(key: string) {
   return renderToString(
     <html lang="ja">

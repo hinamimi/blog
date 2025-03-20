@@ -10,8 +10,8 @@ export const Head = (metaData: Metadata) => (
     {metaData.description && <meta property="og:description" content={metaData.description} />}
     <meta property="og:title" content={metaData.title} />
     <meta property="og:type" content="website" />
-    {metaData.additionalMeta?.map((meta, index) => (
-      <meta key={index} name={meta.name} content={meta.content} />
+    {metaData.additionalMeta?.map((meta) => (
+      <meta key={meta.name} name={meta.name} content={meta.content} />
     ))}
     <link rel="icon" href="/blog/static/favicon.ico" />
   </>

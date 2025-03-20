@@ -546,7 +546,8 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:@biomejs/biome@^1.9.4"
+      "npm:@biomejs/biome@^1.9.4",
+      "npm:@esbuild-plugins/node-modules-polyfill@~0.2.2"
     ]
   }
 }
