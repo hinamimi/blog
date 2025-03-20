@@ -1,14 +1,10 @@
 /** @jsxImportSource https://esm.sh/react@19.0.0 */
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
-import { renderToString } from "https://esm.sh/react-dom@19.0.0/server";
 import { ensureDir } from "https://deno.land/std@0.192.0/fs/mod.ts";
 import { dirname, join } from "https://deno.land/std@0.192.0/path/mod.ts";
 import { copy } from "https://deno.land/std@0.224.0/fs/copy.ts";
-import { Body } from "@/components/Body.tsx";
-import { Head } from "@/components/Head.tsx";
-import { metadataMap } from "@/routes.tsx";
-import { defaultMetadata } from "@/utils/metaData.ts";
+import { Html } from "@/html.tsx";
 
 // ビルド対象のパス
 const routes = [
@@ -65,14 +61,7 @@ async function generateStaticHTML() {
 
   // 各ルートに対してHTMLを生成
   for (const route of routes) {
-    const html = renderToString(
-      <html lang="ja">
-        {Head(metadataMap[route]?.() ?? defaultMetadata)}
-        {Body(route)}
-        {/* クライアントサイドスクリプトの挿入 */}
-        <script type="module" src="/blog/static/js/client.js"></script>
-      </html>,
-    );
+    const html = Html(route);
 
     // 出力パスの設定
     const outputPath = route === "/"

@@ -2,12 +2,8 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
-import { renderToString } from "https://esm.sh/react-dom@19.0.0/server";
 import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
-import { metadataMap } from "@/routes.tsx";
-import { defaultMetadata } from "@/utils/metaData.ts";
-import { Head } from "@/components/Head.tsx";
-import { Body } from "@/components/Body.tsx";
+import { Html } from "@/html.tsx";
 
 let ctx: esbuild.BuildContext | null = null;
 
@@ -88,15 +84,7 @@ async function startServer() {
       return serveDir(req, { fsRoot: "." });
     }
 
-    const html = renderToString(
-      <html lang="ja">
-        {Head(metadataMap[url.pathname]?.() ?? defaultMetadata)}
-        {Body(url.pathname)}
-        {/* クライアントサイドスクリプトの挿入 */}
-        <script type="module" src="/blog/static/js/client.js"></script>
-      </html>,
-    );
-
+    const html = Html(url.pathname);
     return new Response(`<!DOCTYPE html>${html}`, {
       headers: { "content-type": "text/html; charset=utf-8" },
     });
