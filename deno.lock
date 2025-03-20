@@ -320,6 +320,8 @@
     "https://esm.sh/@types/react-dom@19.0.4/client.js": "fabf6997a3adf11e45d11e3c4d58d0634ab98f9d72f3116f3694123818ccd457",
     "https://esm.sh/cookie@1.0.2/denonext/cookie.mjs": "6c4f976d4d933ff2d7afc1f6ee7af134108c9858f5a2aadc6189084bd5972275",
     "https://esm.sh/cookie@1.0.2?target=denonext": "04dabbcad7a7a96d841d6b21f00cb20191fb29339781237088d8edabad52df66",
+    "https://esm.sh/process@0.11.10": "04ea866e2d41774b69ea209bd33ec3422f8ebdb985ae45d4c8f89dbfb34f5dbe",
+    "https://esm.sh/process@0.11.10/denonext/process.mjs": "090e664e58df177ad8e385671cb9245e024c4b842d3286c6a9a4bb681df919a9",
     "https://esm.sh/react-dom@18.2.0/denonext/server.mjs": "8e60c3810ba398eae573a08bb0586fa6f026a039b22719c149426b8a898cd13f",
     "https://esm.sh/react-dom@18.2.0/server": "feae466060f42aa4d40a2566212814a3d4a04f11b7f84d4504273d15b780001f",
     "https://esm.sh/react-dom@19.0.0/client.js": "c972c16184c695fc5828dfa61d7f341edbc463d20d8108765c93a98027c24227",
