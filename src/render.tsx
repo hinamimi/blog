@@ -1,4 +1,4 @@
-import { createRoot } from "https://esm.sh/react-dom@19.0.0/client.js";
+import { createRoot } from "https://esm.sh/react-dom@19.0.0/client?bundle";
 import { Body } from "./components/Body.tsx";
 
 const execRender = () => {
