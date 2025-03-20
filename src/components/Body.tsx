@@ -1,13 +1,8 @@
-/** @jsxImportSource https://esm.sh/react@19.0.0 */
-import { StaticRouter } from "react-router-dom";
-import { App } from "@/app.tsx";
+import { StaticRouter } from "https://esm.sh/react-router-dom@7.0.0";
+import { Router } from "../routes.tsx";
 
 export const Body = (location: string) => (
-  <body>
-    <div id="root">
-      <StaticRouter location={location}>
-        <App />
-      </StaticRouter>
-    </div>
-  </body>
+  <StaticRouter location={location}>
+    <Router />
+  </StaticRouter>
 );

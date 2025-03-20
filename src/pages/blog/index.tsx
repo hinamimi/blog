@@ -1,6 +1,5 @@
-/** @jsxImportSource https://esm.sh/react@19.0.0 */
-import { Link } from "react-router-dom";
-import Metadata, { defaultMetadata } from "@/utils/metaData.ts";
+import { Link } from "https://esm.sh/react-router-dom@7.0.0";
+import Metadata, { defaultMetadata } from "../../utils/metaData.ts";
 
 export function meta_index(): Metadata {
   return {

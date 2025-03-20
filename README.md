@@ -26,7 +26,7 @@ cd blog
 
 2. Start the development server:
 ```bash
-deno run -A dev.ts
+deno task dev
 ```
 
 The development server will start at `http://localhost:8000/blog` with hot reload enabled. Any changes to the source files will automatically trigger a browser refresh.
@@ -52,7 +52,7 @@ project-root/
 To build the site locally:
 
 ```bash
-deno run -A build.tsx
+deno task build
 ```
 
 This will generate static files in the `dist` directory.
@@ -90,7 +90,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Contributions, issues, and feature requests are welcome!
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+2. Create your feature branch (`git switch -c feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request

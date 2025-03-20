@@ -1,8 +1,7 @@
-/** @jsxImportSource https://esm.sh/react@19.0.0 */
-import Metadata from "@/utils/metaData.ts";
+import Metadata from "../utils/metaData.ts";
 
 export const Head = (metaData: Metadata) => (
-  <head>
+  <>
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{metaData.title}</title>
@@ -24,5 +23,5 @@ export const Head = (metaData: Metadata) => (
       <meta key={index} name={meta.name} content={meta.content} />
     ))}
     <link rel="icon" href="/blog/static/favicon.ico"></link>
-  </head>
+  </>
 );

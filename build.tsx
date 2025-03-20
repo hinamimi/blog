@@ -1,12 +1,10 @@
-/** @jsxImportSource https://esm.sh/react@19.0.0 */
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
 import { ensureDir } from "https://deno.land/std@0.192.0/fs/mod.ts";
 import { dirname, join } from "https://deno.land/std@0.192.0/path/mod.ts";
 import { copy } from "https://deno.land/std@0.224.0/fs/copy.ts";
-import { Html } from "@/html.tsx";
+import { Html, Html2 } from "./src/html.tsx";
 
-// ビルド対象のパス
 const routes = [
   "/blog/",
   "/blog/posts/2025-02-23/",
@@ -16,7 +14,7 @@ async function buildClient() {
   console.log("🔨 Building client bundle with esbuild...");
 
   // クライアントサイドのエントリーポイント
-  const entryPoints = ["src/client.tsx"];
+  const entryPoints = ["src/render.tsx"];
 
   const result = await esbuild.build({
     entryPoints,
@@ -47,7 +45,6 @@ async function buildClient() {
 async function generateStaticHTML() {
   console.log("📄 Generating static HTML...");
 
-  // 出力ディレクトリのクリーンアップと作成
   const DIST_DIR = "dist";
   try {
     await Deno.remove(DIST_DIR, { recursive: true });
@@ -56,22 +53,17 @@ async function generateStaticHTML() {
   }
   await ensureDir(DIST_DIR);
 
-  // 静的ファイルのコピー
   await copy("./static", "./dist/blog/static", { overwrite: true });
 
   // 各ルートに対してHTMLを生成
   for (const route of routes) {
-    const html = Html(route);
-
-    // 出力パスの設定
     const outputPath = route === "/"
       ? join(DIST_DIR, "index.html")
       : join(DIST_DIR, route, "index.html");
-
-    // 出力ディレクトリの作成
     await ensureDir(dirname(outputPath));
 
-    // HTMLファイルの書き出し
+    // const html = Html(route);
+    const html = Html2(route);
     await Deno.writeTextFile(outputPath, `<!DOCTYPE html>${html}`);
     console.log(`📝 Generated: ${outputPath}`);
   }
@@ -83,10 +75,7 @@ async function build() {
   try {
     console.log("🚀 Building static site...");
 
-    // 静的HTMLを生成
     await generateStaticHTML();
-
-    // クライアントサイドのバンドルを生成
     await buildClient();
 
     console.log("✨ Build completed successfully!");
