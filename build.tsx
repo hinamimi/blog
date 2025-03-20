@@ -28,9 +28,6 @@ async function buildClient() {
     plugins: [...denoPlugins()],
     jsxFactory: "React.createElement",
     jsxFragment: "React.Fragment",
-    define: {
-      "process.env.NODE_ENV": '"production"',
-    },
   });
 
   if (result.errors.length > 0) {

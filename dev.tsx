@@ -25,9 +25,6 @@ async function setupEsbuild() {
       jsxImportSource: "https://esm.sh/react@19.0.0",
       jsxFactory: "React.createElement",
       jsxFragment: "React.Fragment",
-      define: {
-        "process.env.NODE_ENV": '"development"',
-      },
       banner: {
         js: `
           // 開発環境用のホットリロードコード
