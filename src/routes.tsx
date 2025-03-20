@@ -1,7 +1,7 @@
 import { Route, Routes } from "https://esm.sh/react-router-dom@7.0.0";
 import IndexPage, { meta_index } from "./pages/blog/index.tsx";
 import FirstPost, { meta_20250223 } from "./pages/blog/posts/2025-02-23.tsx";
-import Metadata from "./utils/metaData.ts";
+import type Metadata from "./utils/metaData.ts";
 
 export const metadataMap: Record<string, () => Metadata> = {
   "/blog/": meta_index,

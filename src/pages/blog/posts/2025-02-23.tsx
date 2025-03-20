@@ -1,5 +1,6 @@
 import { Link } from "https://esm.sh/react-router-dom@7.0.0";
-import Metadata, { defaultMetadata } from "../../../utils/metaData.ts";
+import type Metadata from "../../../utils/metaData.ts";
+import { defaultMetadata } from "../../../utils/metaData.ts";
 
 export function meta_20250223(): Metadata {
   return {
@@ -38,20 +39,14 @@ export default function post_20250223() {
       </p>
 
       <h2 style={{ color: "#555" }}>環境構築するまでの意思決定</h2>
-      <p>
-        環境構築には色々な選択肢があったが、最終的に以下のような構成にした。
-      </p>
+      <p>環境構築には色々な選択肢があったが、最終的に以下のような構成にした。</p>
 
       <ul>
         <li>
           <strong>Deno + React + React Router</strong> で構築
           <ul>
-            <li>
-              職場ではNode.jsを使っているので、せっかくだからDenoを試したかった。
-            </li>
-            <li>
-              フロントエンドのデファクトスタンダードはReactなので、やっぱりこれを選択。
-            </li>
+            <li>職場ではNode.jsを使っているので、せっかくだからDenoを試したかった。</li>
+            <li>フロントエンドのデファクトスタンダードはReactなので、やっぱりこれを選択。</li>
             <li>
               Next.jsは個人的にあまり好きじゃない（アンチというほどでもないが）、それに他のフレームワークを触ったことがなかったので、React
               Routerを採用。
@@ -94,16 +89,12 @@ export default function post_20250223() {
             <li>
               Claudeにはメインの流れを考えさせ、Copilotにはエラー修正や細かい説明をさせる。
               <ul>
-                <li>
-                  こうすることで、Claudeに逐一コンテキストを説明しなくて済むので効率的。
-                </li>
+                <li>こうすることで、Claudeに逐一コンテキストを説明しなくて済むので効率的。</li>
                 <li>
                   ただし、Copilotは使いこなせなかったので、最終的にChatGPTに助けを求めた。
                   <ul>
                     <li>AIエージェントをうまく扱うのは意外と難しい。</li>
-                    <li>
-                      最新技術についていけなくなっている気がして、少し焦る……。
-                    </li>
+                    <li>最新技術についていけなくなっている気がして、少し焦る……。</li>
                   </ul>
                 </li>
               </ul>

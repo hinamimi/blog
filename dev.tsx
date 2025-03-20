@@ -1,7 +1,7 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
+import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
 import { Html, Html2 } from "./src/html.tsx";
 
 let ctx: esbuild.BuildContext | null = null;
@@ -51,45 +51,42 @@ async function startServer() {
   await setupEsbuild();
 
   console.log("🚀 Starting development server...");
-  serve((req) => {
-    const url = new URL(req.url);
+  serve(
+    (req) => {
+      const url = new URL(req.url);
 
-    if (url.pathname === "/__esbuild_hmr") {
-      if (req.headers.get("upgrade") !== "websocket") {
-        return new Response("Expected WebSocket", { status: 400 });
+      if (url.pathname === "/__esbuild_hmr") {
+        if (req.headers.get("upgrade") !== "websocket") {
+          return new Response("Expected WebSocket", { status: 400 });
+        }
+
+        const { socket, response } = Deno.upgradeWebSocket(req);
+        clients.add(socket);
+
+        socket.onclose = () => {
+          clients.delete(socket);
+        };
+
+        return response;
       }
 
-      const { socket, response } = Deno.upgradeWebSocket(req);
-      clients.add(socket);
-
-      socket.onclose = () => {
-        clients.delete(socket);
-      };
-
-      return response;
-    }
-
-    if (url.pathname.startsWith("/blog/static/")) {
-      return serveDir(
-        new Request(
-          req.url.replace("/blog/static", "/.esbuild-dev/static"),
-          req,
-        ),
-        {
+      if (url.pathname.startsWith("/blog/static/")) {
+        return serveDir(new Request(req.url.replace("/blog/static", "/.esbuild-dev/static"), req), {
           fsRoot: ".",
-        },
-      );
-    }
+        });
+      }
 
-    if (url.pathname.startsWith("/static/")) {
-      return serveDir(req, { fsRoot: "." });
-    }
+      if (url.pathname.startsWith("/static/")) {
+        return serveDir(req, { fsRoot: "." });
+      }
 
-    const html = Html(url.pathname);
-    return new Response(`<!DOCTYPE html>${html}`, {
-      headers: { "content-type": "text/html; charset=utf-8" },
-    });
-  }, { port: 8000 });
+      const html = Html(url.pathname);
+      return new Response(`<!DOCTYPE html>${html}`, {
+        headers: { "content-type": "text/html; charset=utf-8" },
+      });
+    },
+    { port: 8000 },
+  );
 }
 
 async function notifyClients() {
@@ -100,11 +97,11 @@ async function notifyClients() {
     }
     console.log("✅ Rebuild complete");
 
-    clients.forEach((client) => {
+    for (const client of clients) {
       if (client.readyState === WebSocket.OPEN) {
         client.send("reload");
       }
-    });
+    }
   } catch (error) {
     console.error("❌ Build failed:", error);
   }

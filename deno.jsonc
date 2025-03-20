@@ -1,5 +1,6 @@
 {
   "imports": {
+    "@biomejs/biome": "npm:@biomejs/biome@^1.9.4",
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/server": "https://esm.sh/react-dom@19.0.0/server",
@@ -12,16 +13,8 @@
   },
   "tasks": {
     "dev": "deno run -A --watch dev.tsx",
-    "build": "deno run -A build.tsx"
-  },
-  "fmt": {
-    "options": {
-      "useTabs": false,
-      "indentWidth": 2
-    }
-  },
-  "lint": {
-    "options": {}
+    "build": "deno run -A build.tsx",
+    "lint": "deno run -A npm:@biomejs/biome check ./src/ --write"
   },
   "test": {},
   "exclude": ["**/node_modules/**"]

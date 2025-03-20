@@ -20,7 +20,7 @@ export function Html2(key: string) {
         {Head(metadataMap[key]?.() ?? defaultMetadata)}
         <script type="module" src="/blog/static/js/render.js" />
       </head>
-      <body></body>
+      <body />
     </html>,
   );
 }

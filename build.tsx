@@ -1,14 +1,12 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
+import NodeModulesPolyfillPlugin from "npm:@esbuild-plugins/node-modules-polyfill@^0.2.2";
 import { ensureDir } from "https://deno.land/std@0.192.0/fs/mod.ts";
 import { dirname, join } from "https://deno.land/std@0.192.0/path/mod.ts";
 import { copy } from "https://deno.land/std@0.224.0/fs/copy.ts";
+import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
 import { Html, Html2 } from "./src/html.tsx";
 
-const routes = [
-  "/blog/",
-  "/blog/posts/2025-02-23/",
-];
+const routes = ["/blog/", "/blog/posts/2025-02-23/"];
 
 async function buildClient() {
   console.log("🔨 Building client bundle with esbuild...");

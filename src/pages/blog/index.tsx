@@ -1,5 +1,6 @@
 import { Link } from "https://esm.sh/react-router-dom@7.0.0";
-import Metadata, { defaultMetadata } from "../../utils/metaData.ts";
+import type Metadata from "../../utils/metaData.ts";
+import { defaultMetadata } from "../../utils/metaData.ts";
 
 export function meta_index(): Metadata {
   return {
