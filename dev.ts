@@ -3,6 +3,8 @@ import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { Html } from "./src/components/Html.tsx";
 import { esbuildContext } from "./esbuild.ts";
+import { ensureDir, walk } from "https://deno.land/std@0.213.0/fs/mod.ts";
+import { compileSass } from "./sass.ts";
 
 let ctx: esbuild.BuildContext | null = null;
 const clients = new Set<WebSocket>();
@@ -49,7 +51,7 @@ const startServer = async () => {
       }
 
       if (url.pathname.startsWith("/blog/static/")) {
-        return serveDir(new Request(req.url.replace("/blog/static", "/.esbuild-dev/static"), req), {
+        return serveDir(new Request(req.url.replace("/blog/static", "/.dev/static"), req), {
           fsRoot: ".",
         });
       }
@@ -86,11 +88,14 @@ const notifyClients = async () => {
 };
 
 const setupFileWatcher = () => {
-  const watcher = Deno.watchFs(["./src", "./static"]);
+  const watcher = Deno.watchFs(["./src", "./static", "./src/styles"]);
 
   (async () => {
     for await (const event of watcher) {
       if (["create", "modify", "remove"].includes(event.kind)) {
+        if (event.paths.some((path) => path.endsWith(".scss"))) {
+          await compileSass();
+        }
         await notifyClients();
       }
     }
@@ -118,8 +123,36 @@ Deno.addSignalListener("SIGTERM", () => {
   });
 });
 
-if (import.meta.main) {
-  setupFileWatcher();
+const cleanDevDir = async (devDir: string) => {
+  try {
+    await Deno.remove(devDir, { recursive: true });
+  } catch {
+    console.warn("⚠️ No existing dev directory to clean up");
+  }
+};
 
+const createSymlinks = async (srcDir: string, distDir: string) => {
+  for await (const entry of walk(srcDir, { includeDirs: false, includeFiles: true })) {
+    const absPath = await Deno.realPath(entry.path);
+    const relPath = entry.path.substring(srcDir.length + 1);
+    const linkPath = `${distDir}/${relPath}`;
+
+    await ensureDir(linkPath.substring(0, linkPath.lastIndexOf("/")));
+
+    try {
+      await Deno.symlink(absPath, linkPath);
+      console.log(`Linked: ${absPath} -> ${linkPath}`);
+    } catch (error) {
+      console.warn(`Skipping: ${linkPath} (already exists or error)`);
+    }
+  }
+};
+
+if (import.meta.main) {
+  await cleanDevDir(".dev/static");
+  await createSymlinks("static", ".dev/static");
+  await compileSass();
+
+  setupFileWatcher();
   await startServer();
 }

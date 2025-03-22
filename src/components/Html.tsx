@@ -7,7 +7,10 @@ import { Head } from "./Head.tsx";
 export function Html(key: string) {
   return renderToString(
     <html lang="ja">
-      <head>{Head(routes[key]?.meta ?? defaultMetadata)}</head>
+      <head>
+        {Head(routes[key]?.meta ?? defaultMetadata)}
+        <link rel="stylesheet" href="/blog/static/css/global.css" />
+      </head>
       <body>{Body(key)}</body>
     </html>,
   );

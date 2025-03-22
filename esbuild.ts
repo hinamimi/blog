@@ -6,7 +6,7 @@ const ws = new WebSocket(\`ws://\${window.location.host}/__esbuild_hmr\`);
 ws.addEventListener('message', () => window.location.reload());`;
 
 const devContext = {
-  outdir: ".esbuild-dev/static/js",
+  outdir: ".dev/static/js",
   sourcemap: false,
   define: {
     "process.env.NODE_ENV": '"development"',

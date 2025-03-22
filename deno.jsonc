@@ -4,7 +4,8 @@
     "react": "https://esm.sh/react@19.0.0",
     "react-dom": "https://esm.sh/react-dom@19.0.0",
     "react-dom/server": "https://esm.sh/react-dom@19.0.0/server",
-    "react-router-dom": "https://esm.sh/react-router-dom@7.0.0"
+    "react-router-dom": "https://esm.sh/react-router-dom@7.0.0",
+    "sass": "npm:sass@^1.86.0"
   },
   "compilerOptions": {
     "lib": ["deno.window", "dom"],

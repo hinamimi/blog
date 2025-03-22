@@ -4,4 +4,4 @@
 
 # distributions
 dist/**
-.esbuild-dev/**
+.dev/**
