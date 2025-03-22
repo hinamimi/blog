@@ -1,10 +1,10 @@
 # Personal Website with Deno and React
 
-This repository contains my personal website built with Deno 2.1 and React. It uses a static site generation approach and is hosted on GitHub Pages. Visit https://hinamimi.github.io/blog/ .
+This repository contains my personal website built with Deno 2.2 and React. It uses a static site generation approach and is hosted on GitHub Pages. Visit https://hinamimi.github.io/blog/ .
 
 ## 🛠 Tech Stack
 
-- **Runtime**: Deno 2.1
+- **Runtime**: Deno 2.2
 - **Framework**: React 18
 - **Deployment**: GitHub Pages
 - **Build**: Custom static site generator
@@ -13,7 +13,7 @@ This repository contains my personal website built with Deno 2.1 and React. It u
 
 ### Prerequisites
 
-- Deno 2.1 or later installed on your machine
+- Deno 2.2 or later installed on your machine
 - Git for version control
 
 ### Local Development

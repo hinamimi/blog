@@ -3,4 +3,4 @@ NODE_ENV = "development"
 DENO_ENV = "development"
 
 [tools]
-deno = "2.1.6"
+deno = "2.2.4"
