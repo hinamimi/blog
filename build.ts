@@ -5,6 +5,7 @@ import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
 import { Html } from "./src/components/Html.tsx";
 import { esbuildContext } from "./esbuild.ts";
 import { routes } from "./src/routes.tsx";
+import { compileSass } from "./sass.ts";
 
 const buildClient = async () => {
   console.log("🔨 Building client bundle with esbuild...");
@@ -32,8 +33,6 @@ const generateStaticHTML = async () => {
   await ensureDir(DIST_DIR);
 
   await copy("./static", "./dist/blog/static", { overwrite: true });
-  await copy(".dev/static/css", "./dist/blog/static/css", { overwrite: true });
-  await copy(".dev/static/js", "./dist/blog/static/js", { overwrite: true });
 
   for (const [route] of Object.entries(routes)) {
     const outputPath =
@@ -54,6 +53,7 @@ const build = async () => {
 
     await generateStaticHTML();
     await buildClient();
+    await compileSass("dist/blog/static/css");
 
     console.log("✨ Build completed successfully!");
 

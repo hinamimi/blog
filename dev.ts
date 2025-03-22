@@ -94,7 +94,7 @@ const setupFileWatcher = () => {
     for await (const event of watcher) {
       if (["create", "modify", "remove"].includes(event.kind)) {
         if (event.paths.some((path) => path.endsWith(".scss"))) {
-          await compileSass();
+          await compileSass(".dev/static/css");
         }
         await notifyClients();
       }
@@ -151,7 +151,7 @@ const createSymlinks = async (srcDir: string, distDir: string) => {
 if (import.meta.main) {
   await cleanDevDir(".dev/static");
   await createSymlinks("static", ".dev/static");
-  await compileSass();
+  await compileSass(".dev/static/css");
 
   setupFileWatcher();
   await startServer();
