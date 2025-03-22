@@ -2,30 +2,15 @@ import { ensureDir } from "https://deno.land/std@0.192.0/fs/mod.ts";
 import { dirname, join } from "https://deno.land/std@0.192.0/path/mod.ts";
 import { copy } from "https://deno.land/std@0.224.0/fs/copy.ts";
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
-import { Html } from "./src/html.tsx";
+import { Html } from "./src/components/Html.tsx";
+import { esbuildContext } from "./esbuild.ts";
 
 const routes = ["/blog/", "/blog/posts/2025-02-23/"];
 
-async function buildClient() {
+const buildClient = async () => {
   console.log("🔨 Building client bundle with esbuild...");
 
-  // クライアントサイドのエントリーポイント
-  const entryPoints = ["src/render.tsx"];
-
-  const result = await esbuild.build({
-    entryPoints,
-    bundle: true,
-    outdir: "dist/blog/static/js",
-    format: "esm",
-    splitting: true,
-    minify: true,
-    sourcemap: true,
-    target: ["es2020", "chrome90", "firefox90", "safari13"],
-    plugins: [...denoPlugins()],
-    jsxFactory: "React.createElement",
-    jsxFragment: "React.Fragment",
-  });
+  const result = await esbuild.build(esbuildContext("build"));
 
   if (result.errors.length > 0) {
     console.error("❌ Client build failed:", result.errors);
@@ -34,9 +19,9 @@ async function buildClient() {
 
   console.log("✅ Client bundle built successfully!");
   return result;
-}
+};
 
-async function generateStaticHTML() {
+const generateStaticHTML = async () => {
   console.log("📄 Generating static HTML...");
 
   const DIST_DIR = "dist";
@@ -49,7 +34,6 @@ async function generateStaticHTML() {
 
   await copy("./static", "./dist/blog/static", { overwrite: true });
 
-  // 各ルートに対してHTMLを生成
   for (const route of routes) {
     const outputPath =
       route === "/" ? join(DIST_DIR, "index.html") : join(DIST_DIR, route, "index.html");
@@ -61,9 +45,9 @@ async function generateStaticHTML() {
   }
 
   console.log("✅ Static HTML generated successfully!");
-}
+};
 
-async function build() {
+const build = async () => {
   try {
     console.log("🚀 Building static site...");
 
@@ -79,7 +63,7 @@ async function build() {
     esbuild.stop();
     Deno.exit(1);
   }
-}
+};
 
 if (import.meta.main) {
   await build();

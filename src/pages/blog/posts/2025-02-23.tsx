@@ -11,7 +11,7 @@ export function meta_20250223(): Metadata {
   };
 }
 
-export default function post_20250223() {
+export default function Post_20250223() {
   return (
     <div
       style={{

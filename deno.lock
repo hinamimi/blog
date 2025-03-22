@@ -3,7 +3,6 @@
   "specifiers": {
     "npm:@biomejs/biome@*": "1.9.4",
     "npm:@biomejs/biome@^1.9.4": "1.9.4",
-    "npm:@esbuild-plugins/node-modules-polyfill@~0.2.2": "0.2.2_esbuild@0.25.1",
     "npm:@types/node@*": "22.5.4"
   },
   "npm": {
@@ -44,159 +43,11 @@
     "@biomejs/cli-win32-x64@1.9.4": {
       "integrity": "sha512-8Y5wMhVIPaWe6jw2H+KlEm4wP/f7EW3810ZLmDlrEEy5KvBsb9ECEfu/kMWD484ijfQ8+nIi0giMgu9g1UAuuA=="
     },
-    "@esbuild-plugins/node-modules-polyfill@0.2.2_esbuild@0.25.1": {
-      "integrity": "sha512-LXV7QsWJxRuMYvKbiznh+U1ilIop3g2TeKRzUxOG5X3YITc8JyyTa90BmLwqqv0YnX4v32CSlG+vsziZp9dMvA==",
-      "dependencies": [
-        "esbuild",
-        "escape-string-regexp",
-        "rollup-plugin-node-polyfills"
-      ]
-    },
-    "@esbuild/aix-ppc64@0.25.1": {
-      "integrity": "sha512-kfYGy8IdzTGy+z0vFGvExZtxkFlA4zAxgKEahG9KE1ScBjpQnFsNOX8KTU5ojNru5ed5CVoJYXFtoxaq5nFbjQ=="
-    },
-    "@esbuild/android-arm64@0.25.1": {
-      "integrity": "sha512-50tM0zCJW5kGqgG7fQ7IHvQOcAn9TKiVRuQ/lN0xR+T2lzEFvAi1ZcS8DiksFcEpf1t/GYOeOfCAgDHFpkiSmA=="
-    },
-    "@esbuild/android-arm@0.25.1": {
-      "integrity": "sha512-dp+MshLYux6j/JjdqVLnMglQlFu+MuVeNrmT5nk6q07wNhCdSnB7QZj+7G8VMUGh1q+vj2Bq8kRsuyA00I/k+Q=="
-    },
-    "@esbuild/android-x64@0.25.1": {
-      "integrity": "sha512-GCj6WfUtNldqUzYkN/ITtlhwQqGWu9S45vUXs7EIYf+7rCiiqH9bCloatO9VhxsL0Pji+PF4Lz2XXCES+Q8hDw=="
-    },
-    "@esbuild/darwin-arm64@0.25.1": {
-      "integrity": "sha512-5hEZKPf+nQjYoSr/elb62U19/l1mZDdqidGfmFutVUjjUZrOazAtwK+Kr+3y0C/oeJfLlxo9fXb1w7L+P7E4FQ=="
-    },
-    "@esbuild/darwin-x64@0.25.1": {
-      "integrity": "sha512-hxVnwL2Dqs3fM1IWq8Iezh0cX7ZGdVhbTfnOy5uURtao5OIVCEyj9xIzemDi7sRvKsuSdtCAhMKarxqtlyVyfA=="
-    },
-    "@esbuild/freebsd-arm64@0.25.1": {
-      "integrity": "sha512-1MrCZs0fZa2g8E+FUo2ipw6jw5qqQiH+tERoS5fAfKnRx6NXH31tXBKI3VpmLijLH6yriMZsxJtaXUyFt/8Y4A=="
-    },
-    "@esbuild/freebsd-x64@0.25.1": {
-      "integrity": "sha512-0IZWLiTyz7nm0xuIs0q1Y3QWJC52R8aSXxe40VUxm6BB1RNmkODtW6LHvWRrGiICulcX7ZvyH6h5fqdLu4gkww=="
-    },
-    "@esbuild/linux-arm64@0.25.1": {
-      "integrity": "sha512-jaN3dHi0/DDPelk0nLcXRm1q7DNJpjXy7yWaWvbfkPvI+7XNSc/lDOnCLN7gzsyzgu6qSAmgSvP9oXAhP973uQ=="
-    },
-    "@esbuild/linux-arm@0.25.1": {
-      "integrity": "sha512-NdKOhS4u7JhDKw9G3cY6sWqFcnLITn6SqivVArbzIaf3cemShqfLGHYMx8Xlm/lBit3/5d7kXvriTUGa5YViuQ=="
-    },
-    "@esbuild/linux-ia32@0.25.1": {
-      "integrity": "sha512-OJykPaF4v8JidKNGz8c/q1lBO44sQNUQtq1KktJXdBLn1hPod5rE/Hko5ugKKZd+D2+o1a9MFGUEIUwO2YfgkQ=="
-    },
-    "@esbuild/linux-loong64@0.25.1": {
-      "integrity": "sha512-nGfornQj4dzcq5Vp835oM/o21UMlXzn79KobKlcs3Wz9smwiifknLy4xDCLUU0BWp7b/houtdrgUz7nOGnfIYg=="
-    },
-    "@esbuild/linux-mips64el@0.25.1": {
-      "integrity": "sha512-1osBbPEFYwIE5IVB/0g2X6i1qInZa1aIoj1TdL4AaAb55xIIgbg8Doq6a5BzYWgr+tEcDzYH67XVnTmUzL+nXg=="
-    },
-    "@esbuild/linux-ppc64@0.25.1": {
-      "integrity": "sha512-/6VBJOwUf3TdTvJZ82qF3tbLuWsscd7/1w+D9LH0W/SqUgM5/JJD0lrJ1fVIfZsqB6RFmLCe0Xz3fmZc3WtyVg=="
-    },
-    "@esbuild/linux-riscv64@0.25.1": {
-      "integrity": "sha512-nSut/Mx5gnilhcq2yIMLMe3Wl4FK5wx/o0QuuCLMtmJn+WeWYoEGDN1ipcN72g1WHsnIbxGXd4i/MF0gTcuAjQ=="
-    },
-    "@esbuild/linux-s390x@0.25.1": {
-      "integrity": "sha512-cEECeLlJNfT8kZHqLarDBQso9a27o2Zd2AQ8USAEoGtejOrCYHNtKP8XQhMDJMtthdF4GBmjR2au3x1udADQQQ=="
-    },
-    "@esbuild/linux-x64@0.25.1": {
-      "integrity": "sha512-xbfUhu/gnvSEg+EGovRc+kjBAkrvtk38RlerAzQxvMzlB4fXpCFCeUAYzJvrnhFtdeyVCDANSjJvOvGYoeKzFA=="
-    },
-    "@esbuild/netbsd-arm64@0.25.1": {
-      "integrity": "sha512-O96poM2XGhLtpTh+s4+nP7YCCAfb4tJNRVZHfIE7dgmax+yMP2WgMd2OecBuaATHKTHsLWHQeuaxMRnCsH8+5g=="
-    },
-    "@esbuild/netbsd-x64@0.25.1": {
-      "integrity": "sha512-X53z6uXip6KFXBQ+Krbx25XHV/NCbzryM6ehOAeAil7X7oa4XIq+394PWGnwaSQ2WRA0KI6PUO6hTO5zeF5ijA=="
-    },
-    "@esbuild/openbsd-arm64@0.25.1": {
-      "integrity": "sha512-Na9T3szbXezdzM/Kfs3GcRQNjHzM6GzFBeU1/6IV/npKP5ORtp9zbQjvkDJ47s6BCgaAZnnnu/cY1x342+MvZg=="
-    },
-    "@esbuild/openbsd-x64@0.25.1": {
-      "integrity": "sha512-T3H78X2h1tszfRSf+txbt5aOp/e7TAz3ptVKu9Oyir3IAOFPGV6O9c2naym5TOriy1l0nNf6a4X5UXRZSGX/dw=="
-    },
-    "@esbuild/sunos-x64@0.25.1": {
-      "integrity": "sha512-2H3RUvcmULO7dIE5EWJH8eubZAI4xw54H1ilJnRNZdeo8dTADEZ21w6J22XBkXqGJbe0+wnNJtw3UXRoLJnFEg=="
-    },
-    "@esbuild/win32-arm64@0.25.1": {
-      "integrity": "sha512-GE7XvrdOzrb+yVKB9KsRMq+7a2U/K5Cf/8grVFRAGJmfADr/e/ODQ134RK2/eeHqYV5eQRFxb1hY7Nr15fv1NQ=="
-    },
-    "@esbuild/win32-ia32@0.25.1": {
-      "integrity": "sha512-uOxSJCIcavSiT6UnBhBzE8wy3n0hOkJsBOzy7HDAuTDE++1DJMRRVCPGisULScHL+a/ZwdXPpXD3IyFKjA7K8A=="
-    },
-    "@esbuild/win32-x64@0.25.1": {
-      "integrity": "sha512-Y1EQdcfwMSeQN/ujR5VayLOJ1BHaK+ssyk0AEzPjC+t1lITgsnccPqFjb6V+LsTp/9Iov4ysfjxLaGJ9RPtkVg=="
-    },
     "@types/node@22.5.4": {
       "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
       "dependencies": [
         "undici-types"
       ]
-    },
-    "esbuild@0.25.1": {
-      "integrity": "sha512-BGO5LtrGC7vxnqucAe/rmvKdJllfGaYWdyABvyMoXQlfYMb2bbRuReWR5tEGE//4LcNJj9XrkovTqNYRFZHAMQ==",
-      "dependencies": [
-        "@esbuild/aix-ppc64",
-        "@esbuild/android-arm",
-        "@esbuild/android-arm64",
-        "@esbuild/android-x64",
-        "@esbuild/darwin-arm64",
-        "@esbuild/darwin-x64",
-        "@esbuild/freebsd-arm64",
-        "@esbuild/freebsd-x64",
-        "@esbuild/linux-arm",
-        "@esbuild/linux-arm64",
-        "@esbuild/linux-ia32",
-        "@esbuild/linux-loong64",
-        "@esbuild/linux-mips64el",
-        "@esbuild/linux-ppc64",
-        "@esbuild/linux-riscv64",
-        "@esbuild/linux-s390x",
-        "@esbuild/linux-x64",
-        "@esbuild/netbsd-arm64",
-        "@esbuild/netbsd-x64",
-        "@esbuild/openbsd-arm64",
-        "@esbuild/openbsd-x64",
-        "@esbuild/sunos-x64",
-        "@esbuild/win32-arm64",
-        "@esbuild/win32-ia32",
-        "@esbuild/win32-x64"
-      ]
-    },
-    "escape-string-regexp@4.0.0": {
-      "integrity": "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA=="
-    },
-    "estree-walker@0.6.1": {
-      "integrity": "sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w=="
-    },
-    "magic-string@0.25.9": {
-      "integrity": "sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==",
-      "dependencies": [
-        "sourcemap-codec"
-      ]
-    },
-    "rollup-plugin-inject@3.0.2": {
-      "integrity": "sha512-ptg9PQwzs3orn4jkgXJ74bfs5vYz1NCZlSQMBUA0wKcGp5i5pA1AO3fOUEte8enhGUC+iapTCzEWw2jEFFUO/w==",
-      "dependencies": [
-        "estree-walker",
-        "magic-string",
-        "rollup-pluginutils"
-      ]
-    },
-    "rollup-plugin-node-polyfills@0.2.1": {
-      "integrity": "sha512-4kCrKPTJ6sK4/gLL/U5QzVT8cxJcofO0OU74tnB19F40cmuAKSzH5/siithxlofFEjwvw1YAhPmbvGNA6jEroA==",
-      "dependencies": [
-        "rollup-plugin-inject"
-      ]
-    },
-    "rollup-pluginutils@2.8.2": {
-      "integrity": "sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==",
-      "dependencies": [
-        "estree-walker"
-      ]
-    },
-    "sourcemap-codec@1.4.8": {
-      "integrity": "sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA=="
     },
     "undici-types@6.19.8": {
       "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
@@ -206,6 +57,7 @@
     "https://deno.land/std/fs/copy.ts": "https://deno.land/std@0.224.0/fs/copy.ts",
     "https://deno.land/x/preact/hooks.ts": "https://deno.land/x/preact@0.0.5/hooks.ts",
     "https://esm.sh/@types/react-dom@~18.2.25/server.d.ts": "https://esm.sh/@types/react-dom@18.2.25/server.d.ts",
+    "https://esm.sh/@types/react-dom@~19.0.3/X-ZXJlYWN0/client.d.ts": "https://esm.sh/@types/react-dom@19.0.4/X-ZXJlYWN0/client.d.ts",
     "https://esm.sh/@types/react-dom@~19.0.3/client.d.ts": "https://esm.sh/@types/react-dom@19.0.4/client.d.ts",
     "https://esm.sh/@types/react-dom@~19.0.3/index.d.ts": "https://esm.sh/@types/react-dom@19.0.4/index.d.ts",
     "https://esm.sh/@types/react-dom@~19.0.3/server.d.ts": "https://esm.sh/@types/react-dom@19.0.4/server.d.ts",
@@ -506,6 +358,7 @@
     "https://esm.sh/@remix-run/router@1.15.0/denonext/router.mjs": "f498d2bb20a08f559d71612c852fae88f96f3c05d0b45d183f3b807f67754b6a",
     "https://esm.sh/@types/react-dom@19.0.0/client.js": "fabf6997a3adf11e45d11e3c4d58d0634ab98f9d72f3116f3694123818ccd457",
     "https://esm.sh/@types/react-dom@19.0.4/client.js": "fabf6997a3adf11e45d11e3c4d58d0634ab98f9d72f3116f3694123818ccd457",
+    "https://esm.sh/@types/react@19.0.10/index.js": "fabf6997a3adf11e45d11e3c4d58d0634ab98f9d72f3116f3694123818ccd457",
     "https://esm.sh/cookie@1.0.2/denonext/cookie.mjs": "6c4f976d4d933ff2d7afc1f6ee7af134108c9858f5a2aadc6189084bd5972275",
     "https://esm.sh/cookie@1.0.2?target=denonext": "04dabbcad7a7a96d841d6b21f00cb20191fb29339781237088d8edabad52df66",
     "https://esm.sh/process@0.11.10": "04ea866e2d41774b69ea209bd33ec3422f8ebdb985ae45d4c8f89dbfb34f5dbe",
@@ -513,8 +366,11 @@
     "https://esm.sh/react-dom@18.2.0/denonext/server.mjs": "8e60c3810ba398eae573a08bb0586fa6f026a039b22719c149426b8a898cd13f",
     "https://esm.sh/react-dom@18.2.0/server": "feae466060f42aa4d40a2566212814a3d4a04f11b7f84d4504273d15b780001f",
     "https://esm.sh/react-dom@19.0.0": "d057f65e74eca8add1702ba9a5ecbcc8e60a73dd358b7852094bde0361725137",
+    "https://esm.sh/react-dom@19.0.0/X-ZXJlYWN0/denonext/client.mjs": "6defc48eaf403b060818f85e9b5eea14d7dc4b8b45ac7bb1786e07004732a80e",
+    "https://esm.sh/react-dom@19.0.0/X-ZXJlYWN0/denonext/react-dom.mjs": "2d25d5180c1f23edec5463583ec94908e70968c34bb3de5cbd17c049fd52acc7",
     "https://esm.sh/react-dom@19.0.0/client.js": "c972c16184c695fc5828dfa61d7f341edbc463d20d8108765c93a98027c24227",
     "https://esm.sh/react-dom@19.0.0/client?bundle": "05149a2087ecf630fee4de480258eb2d94a7984827267371684baef5a8c6bd7a",
+    "https://esm.sh/react-dom@19.0.0/client?external=react": "92a1bc635d068a9f114a1225845392fa418423200b59d4a61a6ae6f6601c6075",
     "https://esm.sh/react-dom@19.0.0/denonext/cjs/react-dom-server-legacy.browser.production.mjs": "7fb4a5e3aa15231dceda099a2ad57cf8cddef5b22b0645250f4bc0310cbb11aa",
     "https://esm.sh/react-dom@19.0.0/denonext/cjs/react-dom-server.browser.production.mjs": "9fb831ff9bfd7b2ad7e1caee61e2934b0c71442a96ddd29975210a874c3d2208",
     "https://esm.sh/react-dom@19.0.0/denonext/client.bundle.mjs": "d998e5f52b6e86721ffc824219e31cfa79a03a4d60d035763e550178389e4c6e",
@@ -546,8 +402,7 @@
   },
   "workspace": {
     "dependencies": [
-      "npm:@biomejs/biome@^1.9.4",
-      "npm:@esbuild-plugins/node-modules-polyfill@~0.2.2"
+      "npm:@biomejs/biome@^1.9.4"
     ]
   }
 }

@@ -34,17 +34,18 @@ The development server will start at `http://localhost:8000/blog` with hot reloa
 ### Project Structure
 
 ```
-project-root/
+.
 ├── .github/
 │   └── workflows/
 │       └── deploy.yml    # GitHub Actions deployment config
 ├── src/
 │   ├── components/       # React components
 │   ├── pages/            # Page components
-│   └── routes.ts         # Routing definitions
+│   ├── utils/            # utils
+│   └── routes.tsx        # Routing definitions
 ├── static/               # Static assets
-├── dev.tsx               # Development server
-└── build.tsx             # Build script
+├── dev.ts                # Development server
+└── build.ts              # Build script
 ```
 
 ## 🔨 Building
@@ -84,16 +85,6 @@ When setting up the repository for the first time:
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git switch -c feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📫 Contact
 

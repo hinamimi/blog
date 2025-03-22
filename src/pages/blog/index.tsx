@@ -6,7 +6,7 @@ export function meta_index(): Metadata {
   return {
     ...defaultMetadata,
     path: "/blog",
-    title: "My Blog",
+    title: "Hinamimi's Blog",
     description: "This is a specific blog post about something interesting",
   };
 }
@@ -14,7 +14,7 @@ export function meta_index(): Metadata {
 export default function IndexPage() {
   return (
     <div>
-      <h1>Welcome to My Blog</h1>
+      <h1>Welcome to Hinamimi's Blog</h1>
       <p>This is the home page.</p>
       <ul>
         <li>

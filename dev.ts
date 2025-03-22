@@ -1,44 +1,17 @@
 import { serve } from "https://deno.land/std@0.192.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.223.0/http/file_server.ts";
 import * as esbuild from "https://deno.land/x/esbuild@v0.19.12/mod.js";
-import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.9.0/mod.ts";
-import { Html } from "./src/html.tsx";
+import { Html } from "./src/components/Html.tsx";
+import { esbuildContext } from "./esbuild.ts";
 
 let ctx: esbuild.BuildContext | null = null;
+const clients = new Set<WebSocket>();
 
-async function setupEsbuild() {
+const setupEsbuild = async () => {
   console.log("🔧 Setting up esbuild development server...");
 
-  // 注: 実際のエントリーポイントのパスに合わせて調整してください
-  const entryPoints = ["src/render.tsx"];
   try {
-    ctx = await esbuild.context({
-      entryPoints,
-      bundle: true,
-      outdir: ".esbuild-dev/static/js",
-      format: "esm",
-      splitting: true,
-      sourcemap: true,
-      target: ["es2020", "chrome90", "firefox90", "safari13"],
-      plugins: [...denoPlugins()],
-      jsx: "automatic",
-      jsxImportSource: "https://esm.sh/react@19.0.0",
-      jsxFactory: "React.createElement",
-      jsxFragment: "React.Fragment",
-      define: {
-        "process.env.NODE_ENV": '"production"',
-      },
-      external: ["node:process"],
-
-      banner: {
-        js: `
-          // 開発環境用のホットリロードコード
-          const ws = new WebSocket(\`ws://\${window.location.host}/__esbuild_hmr\`);
-          ws.addEventListener('message', () => window.location.reload());
-        `,
-      },
-    });
-
+    ctx = await esbuild.context(esbuildContext("dev"));
     await ctx.rebuild();
     console.log("✅ Initial build complete");
 
@@ -48,17 +21,17 @@ async function setupEsbuild() {
     console.error("❌ Failed to initialize esbuild context:", error);
     await cleanup();
   }
-}
+};
 
-const clients = new Set<WebSocket>();
-
-async function startServer() {
+const startServer = async () => {
   await setupEsbuild();
 
   console.log("🚀 Starting development server...");
   serve(
     (req) => {
       const url = new URL(req.url);
+
+      console.log(`🌐 ${req.method} ${url.pathname}`);
 
       if (url.pathname === "/__esbuild_hmr") {
         if (req.headers.get("upgrade") !== "websocket") {
@@ -92,9 +65,9 @@ async function startServer() {
     },
     { port: 8000 },
   );
-}
+};
 
-async function notifyClients() {
+const notifyClients = async () => {
   console.log("🔄 Changes detected, rebuilding...");
   try {
     if (ctx) {
@@ -110,9 +83,9 @@ async function notifyClients() {
   } catch (error) {
     console.error("❌ Build failed:", error);
   }
-}
+};
 
-function setupFileWatcher() {
+const setupFileWatcher = () => {
   const watcher = Deno.watchFs(["./src", "./static"]);
 
   (async () => {
@@ -122,15 +95,15 @@ function setupFileWatcher() {
       }
     }
   })();
-}
+};
 
-async function cleanup() {
+const cleanup = async () => {
   console.log("🧹 Cleaning up resources...");
   if (ctx) {
     await ctx.dispose();
   }
   Deno.exit(0);
-}
+};
 
 Deno.addSignalListener("SIGINT", () => {
   cleanup().catch((err) => {
